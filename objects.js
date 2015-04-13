@@ -19,5 +19,29 @@ function Cat(name, age){
   this.age = age;
 }
 
-var fluffy = new Cat('Miss Sassypants', 3);
+Cat.prototype.purr = function(){
+  console.log(this.name + ' is purring and is ' + this.age + ' years old.');
+};
+
+var fluffy = new Cat('Fluffy', 3);
 console.log('Fluffy', fluffy);
+fluffy.purr();
+
+var molly = new Cat('Molly', 5);
+molly.purr();
+
+var cats = [];
+for(var i = 1; i < 11; i++){
+  var cat = new Cat('cat'+i, i);
+  cats.push(cat);
+}
+
+// cats.forEach(function(c){
+//   c.purr();
+// });
+
+cats.forEach(function(c){
+  if(c.age > 5){
+    c.purr();
+  }
+});
